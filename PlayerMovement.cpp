@@ -17,8 +17,7 @@ int Movement::getPlayerY() const {
 	return playerY;
 }
 
-void Movement::MovePlayer() {
-	SDL_Event event;
+void Movement::MovePlayer(const SDL_Event& event) {
 	if (event.type == SDL_KEYDOWN) {
 		switch (event.key.keysym.sym) {
 		case SDLK_LEFT:

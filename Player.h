@@ -1,4 +1,7 @@
-#pragma once
+#ifndef PLAYER_h
+#define PLAYER_H
+#include <SDL.h>
+
 namespace Player {
 	
 	class Movement {
@@ -14,7 +17,7 @@ namespace Player {
 
 	public:
 		Movement();
-		void MovePlayer();
+		void MovePlayer(const SDL_Event& event);
 		void JumpPlayer();
 		void AttackPlayer();
 		void GuardPlayer();
@@ -23,3 +26,5 @@ namespace Player {
 		int getPlayerY() const;
 	};
 }
+
+#endif // PLAYER_H
