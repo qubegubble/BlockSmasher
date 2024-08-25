@@ -2,13 +2,24 @@
 namespace Player {
 	
 	class Movement {
+	private:
+		int playerX;
+		int playerY;
+		int speed;
+		int jumpSpeed;
+		int gravity;
+		int verticalVelocity;
+		bool isJumping;
+		bool isOnGround;
+
 	public:
+		Movement();
 		void MovePlayer();
-	public:
 		void JumpPlayer();
-	public:
 		void AttackPlayer();
-	public:
 		void GuardPlayer();
+		
+		int getPlayerX() const;
+		int getPlayerY() const;
 	};
 }
