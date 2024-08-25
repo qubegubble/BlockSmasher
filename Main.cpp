@@ -38,11 +38,10 @@ int main(int argc, char* argv[]) {
             if (event.type == SDL_QUIT) {
                 quit = true;
             }
-
-            if (event.type == SDL_KEYDOWN || event.type == SDL_KEYUP) {
-                player.MovePlayer(event);
-            }
+            player.HandleEvent(event);
         }
+
+        player.Update();
 
         playerRect.x = player.getPlayerX();
         playerRect.y = player.getPlayerY();

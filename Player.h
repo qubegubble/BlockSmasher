@@ -14,11 +14,14 @@ namespace Player {
 		int verticalVelocity;
 		bool isJumping;
 		bool isOnGround;
+		bool movingLeft;
+		bool movingRight;
+		bool jumping;
 
 	public:
 		Movement();
-		void MovePlayer(const SDL_Event& event);
-		void JumpPlayer();
+		void HandleEvent(const SDL_Event& event);
+		void Update();
 		void AttackPlayer();
 		void GuardPlayer();
 		
