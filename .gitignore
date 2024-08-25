@@ -1,2 +1,16 @@
-# Ignore x64 Folder for Begining
-/x64
+# Visual Studio files
+*.vcxproj.user
+*.vcxproj.filters
+
+# Build artifacts
+*.exe.recipe
+*.ilk
+*.log
+*.lastbuildstate
+*.tlog
+*.pdb
+*.idb
+/.vs
+# Intermediate and output files
+Debug/
+Release/
