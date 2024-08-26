@@ -1,5 +1,7 @@
 #include "Player.h"
+#include "Platform.h"
 #include <SDL.h>
+#include <vector>
 
 using namespace Player;
 using namespace std;
@@ -9,11 +11,11 @@ Movement::Movement()
     verticalVelocity(0), isJumping(false), isOnGround(true),
     movingLeft(false), movingRight(false), jumping(false) {}
 
-int Movement::getPlayerX() const {
+int Movement::GetPlayerX() const {
     return playerX;
 }
 
-int Movement::getPlayerY() const {
+int Movement::GetPlayerY() const {
     return playerY;
 }
 
@@ -56,12 +58,24 @@ void Movement::HandleEvent(const SDL_Event& event) {
     }
 }
 
-void Movement::Update() {
+void Movement::Update(const std::vector<Platform>& platforms) {
+    int previousX = playerX;
+    int previousY = playerY;
+
     if (movingLeft) {
         playerX -= speed;
     }
     if (movingRight) {
         playerX += speed;
+    }
+
+    SDL_Rect playerRect = { playerX, playerY, 50, 50 };
+
+    for (const auto& platform : platforms) {
+        if (CheckCollision(playerRect, platform.GetRect())) {
+            playerX = previousX; // reset to previous position on collision
+            break;
+        }
     }
 
     if (jumping && isOnGround) {
@@ -71,12 +85,35 @@ void Movement::Update() {
 
     if (!isOnGround) {
         verticalVelocity += gravity;
-        playerY += verticalVelocity;
+    }
 
-        if (playerY >= 100) { // Ground will be implemented later.
-            playerY = 100;
-            isOnGround = true;
-            verticalVelocity = 0;
+    playerY += verticalVelocity;
+
+    isOnGround = false;
+    playerRect.y = playerY;
+    for (const auto& platform : platforms) {
+        if (CheckCollision(playerRect, platform.GetRect())) {
+            if (verticalVelocity > 0) { // falling down
+                playerY = platform.GetRect().y - playerRect.h;
+                isOnGround = true;
+                verticalVelocity = 0;
+            }
+            else if (verticalVelocity < 0) { // jumping up
+                playerY = platform.GetRect().y + platform.GetRect().h;
+                verticalVelocity = 0;
+            }
+            break;
         }
     }
+
+    // check if the player has landed on the ground (floor level check)
+    if (playerY >= 500) { // assuming 500 is the ground level
+        playerY = 500;
+        isOnGround = true;
+        verticalVelocity = 0;
+    }
+}
+
+bool Movement::CheckCollision(const SDL_Rect& a, const SDL_Rect& b) {
+    return SDL_HasIntersection(&a, &b);
 }

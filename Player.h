@@ -1,6 +1,8 @@
 #ifndef PLAYER_h
 #define PLAYER_H
 #include <SDL.h>
+#include <vector>
+#include "Platform.h"
 
 namespace Player {
 	
@@ -21,12 +23,14 @@ namespace Player {
 	public:
 		Movement();
 		void HandleEvent(const SDL_Event& event);
-		void Update();
+		void Update(const std::vector<Platform>& platforms);
 		void AttackPlayer();
 		void GuardPlayer();
 		
-		int getPlayerX() const;
-		int getPlayerY() const;
+		int GetPlayerX() const;
+		int GetPlayerY() const;
+
+		bool CheckCollision(const SDL_Rect& a, const SDL_Rect& b);
 	};
 }
 
