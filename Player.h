@@ -11,14 +11,10 @@ namespace Player {
 		int playerX;
 		int playerY;
 		int speed;
-		int jumpSpeed;
-		int gravity;
-		int verticalVelocity;
-		bool isJumping;
-		bool isOnGround;
 		bool movingLeft;
 		bool movingRight;
-		bool jumping;
+		bool movingDown;
+		bool movingUp;
 
 	public:
 		Movement();

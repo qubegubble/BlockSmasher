@@ -2,15 +2,22 @@
 #include <iostream>
 #include "Player.h"
 #include "Platform.h"
+#include "ScreenSettings.h"
 
 using namespace std;
+using namespace util;
 
 int main(int argc, char* argv[]) {
+    int horizontal;
+    int vertical;
+    Screensize::GetDesktopResolution(horizontal, vertical);
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << endl;
         return -1;
     }
-    SDL_Window* window = SDL_CreateWindow("2D Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+
+    SDL_Window* window = SDL_CreateWindow("BlockSmasher", 0, 0, horizontal, vertical, SDL_WINDOW_FULLSCREEN);
     if (window == nullptr) {
         cout << "Window could not be created! SDL_Error: " << SDL_GetError() << endl;
         SDL_Quit();

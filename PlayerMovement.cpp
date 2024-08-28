@@ -7,9 +7,8 @@ using namespace Player;
 using namespace std;
 
 Movement::Movement()
-    : playerX(100), playerY(100), speed(5), jumpSpeed(20), gravity(2),
-    verticalVelocity(0), isJumping(false), isOnGround(true),
-    movingLeft(false), movingRight(false), jumping(false) {}
+    : playerX(100), playerY(100), speed(5),
+    movingLeft(false), movingRight(false) {}
 
 int Movement::GetPlayerX() const {
     return playerX;
@@ -30,11 +29,13 @@ void Movement::HandleEvent(const SDL_Event& event) {
         case SDLK_d:
             movingRight = true;
             break;
-        case SDLK_SPACE:
-            if (isOnGround) {
-                jumping = true;
-            }
+        case SDLK_DOWN:
+        case SDLK_s:
+            movingDown = true;
             break;
+        case SDLK_UP:
+        case SDLK_w:
+            movingUp = true;
         default:
             break;
         }
@@ -49,8 +50,12 @@ void Movement::HandleEvent(const SDL_Event& event) {
         case SDLK_d:
             movingRight = false;
             break;
-        case SDLK_SPACE:
-            jumping = false;
+        case SDLK_DOWN:
+        case SDLK_s:
+            movingDown = false;
+        case SDLK_UP:
+        case SDLK_w:
+            movingUp = false;
             break;
         default:
             break;
@@ -68,6 +73,12 @@ void Movement::Update(const std::vector<Platform>& platforms) {
     if (movingRight) {
         playerX += speed;
     }
+    if (movingDown) {
+        playerY += speed;
+    }
+    if (movingUp) {
+        playerY -= speed;
+    }
 
     SDL_Rect playerRect = { playerX, playerY, 50, 50 };
 
@@ -76,41 +87,6 @@ void Movement::Update(const std::vector<Platform>& platforms) {
             playerX = previousX; // reset to previous position on collision
             break;
         }
-    }
-
-    if (jumping && isOnGround) {
-        verticalVelocity = -jumpSpeed;
-        isOnGround = false;
-    }
-
-    if (!isOnGround) {
-        verticalVelocity += gravity;
-    }
-
-    playerY += verticalVelocity;
-
-    isOnGround = false;
-    playerRect.y = playerY;
-    for (const auto& platform : platforms) {
-        if (CheckCollision(playerRect, platform.GetRect())) {
-            if (verticalVelocity > 0) { // falling down
-                playerY = platform.GetRect().y - playerRect.h;
-                isOnGround = true;
-                verticalVelocity = 0;
-            }
-            else if (verticalVelocity < 0) { // jumping up
-                playerY = platform.GetRect().y + platform.GetRect().h;
-                verticalVelocity = 0;
-            }
-            break;
-        }
-    }
-
-    // check if the player has landed on the ground (floor level check)
-    if (playerY >= 500) { // assuming 500 is the ground level
-        playerY = 500;
-        isOnGround = true;
-        verticalVelocity = 0;
     }
 }
 
