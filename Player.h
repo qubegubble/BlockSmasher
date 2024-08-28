@@ -2,7 +2,7 @@
 #define PLAYER_H
 #include <SDL.h>
 #include <vector>
-#include "Platform.h"
+#include "Wall.h"
 
 namespace Player {
 	
@@ -15,13 +15,17 @@ namespace Player {
 		bool movingRight;
 		bool movingDown;
 		bool movingUp;
+		bool isInteracting;
+		bool playerAttacking;
+		bool playerGuarding;
 
 	public:
 		Movement();
 		void HandleEvent(const SDL_Event& event);
-		void Update(const std::vector<Platform>& platforms);
+		void Update(const std::vector<Wall>& platforms);
 		void AttackPlayer();
 		void GuardPlayer();
+		void Interact();
 		
 		int GetPlayerX() const;
 		int GetPlayerY() const;
@@ -30,4 +34,4 @@ namespace Player {
 	};
 }
 
-#endif // PLAYER_H
+#endif

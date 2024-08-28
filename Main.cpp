@@ -1,7 +1,7 @@
 #include <SDL.h>
 #include <iostream>
 #include "Player.h"
-#include "Platform.h"
+#include "Wall.h"
 #include "ScreenSettings.h"
 
 using namespace std;
@@ -46,9 +46,9 @@ int main(int argc, char* argv[]) {
     SDL_Color red = { 255, 0, 0, 255 };    // Red
 
     // Create Platform objects with initial colors
-    std::vector<Platform> platforms = {
-        Platform(200, 300, 200, 20, blue), // Blue platform
-        Platform(500, 400, 150, 20, red)   // Red platform
+    std::vector<Wall> platforms = {
+        Wall(200, 300, 200, 20, blue), // Blue platform
+        Wall(500, 400, 150, 20, red)   // Red platform
     };
 
     // Main game loop

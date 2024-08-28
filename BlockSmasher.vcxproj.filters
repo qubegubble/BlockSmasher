@@ -21,7 +21,7 @@
     <ClCompile Include="PlayerMovement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Platform.cpp">
+    <ClCompile Include="Wall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Screensize.cpp">
@@ -32,7 +32,7 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Platform.h">
+    <ClInclude Include="Wall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ScreenSettings.h">
