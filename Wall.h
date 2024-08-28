@@ -1,15 +1,15 @@
-#ifndef PLATTFORM_H
-#define PLATTFORM_H
+#ifndef WALL_H
+#define WALL_H
 
 #include <SDL.h>
 
-class Platform {
+class Wall {
 private:
 	SDL_Rect rect;
 	SDL_Color color;
 
 public:
-	Platform(int x, int y, int w, int h, SDL_Color initialColor);
+	Wall(int x, int y, int w, int h, SDL_Color initialColor);
 
 
 	SDL_Rect GetRect() const;
