@@ -1,13 +1,17 @@
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <iostream>
 #include "GameEng\Headers\Player.h"
 #include "GameEng\Headers\Wall.h"
 #include "GameEng\Headers\ScreenSettings.h"
+#include "GameEng\Headers\Map.h"
+#include <SDL2/SDL_image.h>
+#include <windows.h>
 
 using namespace std;
 using namespace util;
+using namespace Map;
 
-int main(int argc, char* argv[]) {
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, int nCmdShow) {
     int horizontal;
     int vertical;
     Screensize::GetDesktopResolution(horizontal, vertical);
@@ -30,7 +34,13 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return -1;
     }
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White
+    Map::MapHandler mapHandler;
+
+    rapidjson::Document doc = mapHandler.LoadJSONMap("L:\\game\\BlockSmasher\\map\\map.tmj");
+    TileLayer tileLayer = mapHandler.ParseTileLayer(doc);
+    TileSet tileSet = mapHandler.ParseTileset(doc);
+    SDL_Texture* tilesetTexture = mapHandler.LoadTexture(renderer, tileSet.imageSource);
+
     Player::Movement player;
     SDL_Rect playerRect;
     playerRect.w = 50;
@@ -67,8 +77,9 @@ int main(int argc, char* argv[]) {
         SDL_Color green = { 0, 255, 0, 255 };
         platforms[0].SetColor(green);
 
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background
         SDL_RenderClear(renderer);
+
+        mapHandler.RenderTileLayer(renderer, tileLayer, tilesetTexture, tileSet);
 
         // Render platforms
         for (const auto& platform : platforms) {
@@ -88,9 +99,11 @@ int main(int argc, char* argv[]) {
 
 
     // Clean up SDL
+    SDL_DestroyTexture(tilesetTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+    IMG_Quit();
 
     return 0;
 }

@@ -1,4 +1,5 @@
-#include "Wall.h";
+#include "Headers\Wall.h";
+#include <SDL2/SDL.h>
 
 Wall::Wall(int x, int y, int w, int h, SDL_Color initialColor) {
 	rect.x = x;

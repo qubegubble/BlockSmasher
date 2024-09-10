@@ -1,6 +1,6 @@
-#include "Player.h"
-#include "Wall.h"
-#include <SDL.h>
+#include "Headers\Player.h"
+#include "Headers\Wall.h"
+#include <SDL2/SDL.h>
 #include <vector>
 
 using namespace Player;

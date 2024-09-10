@@ -1,5 +1,5 @@
-#include "wtypes.h"
-#include "ScreenSettings.h"
+#include "windows.h"
+#include "Headers\ScreenSettings.h"
 
 using namespace util;
 

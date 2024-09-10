@@ -1,6 +1,6 @@
 #ifndef PLAYER_h
 #define PLAYER_H
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <vector>
 #include "Wall.h"
 

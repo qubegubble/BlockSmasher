@@ -1,7 +1,7 @@
 #ifndef WALL_H
 #define WALL_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 class Wall {
 private:

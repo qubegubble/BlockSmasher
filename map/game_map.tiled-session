@@ -3,15 +3,27 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "map.tmx",
+    "activeFile": "map.tmj",
     "expandedProjectPaths": [
-        "../map-tiles"
+        "../map-tiles",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "../map-tiles/walking_ground.tsj": {
+            "scaleInEditor": 4
+        },
         "../map-tiles/walking_ground.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 8
+        },
+        "map.tmj": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1425,
+                "y": 798.5
+            }
         },
         "map.tmx": {
             "scale": 0.75,
@@ -22,20 +34,24 @@
             }
         }
     },
+    "last.exportedFilePath": "L:/game/BlockSmasher/map",
     "last.imagePath": "L:/game/BlockSmasher/map-tiles",
     "map.height": 45,
-    "map.lastUsedFormat": "tmx",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
     "map.width": 80,
     "openFiles": [
-        "map.tmx",
+        "map.tmj",
         "../map-tiles/walking_ground.tsx"
     ],
     "project": "game_map.tiled-project",
     "recentFiles": [
+        "../map-tiles/walking_ground.tsj",
         "../map-tiles/walking_ground.tsx",
+        "map.tmj",
         "map.tmx"
     ],
-    "tileset.lastUsedFormat": "tsx",
+    "tileset.lastUsedFormat": "json",
     "tileset.tileSize": {
         "height": 64,
         "width": 64
