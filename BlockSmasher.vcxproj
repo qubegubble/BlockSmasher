@@ -133,14 +133,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MapHandler.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="PlayerMovement.cpp" />
     <ClCompile Include="Screensize.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ScreenSettings.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="map-tiles\walking_ground.tsx" />
+    <None Include="map\map.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="map-tiles\walking_ground.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

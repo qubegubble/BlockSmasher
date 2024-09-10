@@ -27,6 +27,12 @@
     <ClCompile Include="Screensize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -38,5 +44,20 @@
     <ClInclude Include="ScreenSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="map-tiles\walking_ground.tsx" />
+    <None Include="map\map.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="map-tiles\walking_ground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

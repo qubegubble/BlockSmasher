@@ -1,8 +1,8 @@
 #include <SDL.h>
 #include <iostream>
-#include "Player.h"
-#include "Wall.h"
-#include "ScreenSettings.h"
+#include "GameEng\Headers\Player.h"
+#include "GameEng\Headers\Wall.h"
+#include "GameEng\Headers\ScreenSettings.h"
 
 using namespace std;
 using namespace util;
