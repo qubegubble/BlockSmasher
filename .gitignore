@@ -43,3 +43,6 @@ $RECYCLE.BIN/
 
 # Built website
 *.Publish.xml
+
+#External Dependencies
+/vcpkg_installed

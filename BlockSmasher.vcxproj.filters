@@ -18,42 +18,39 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerMovement.cpp">
+    <ClCompile Include="GameEng\PlayerMovement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Wall.cpp">
+    <ClCompile Include="GameEng\Wall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Screensize.cpp">
+    <ClCompile Include="GameEng\Screensize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MapHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxml2.cpp">
+    <ClCompile Include="GameEng\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="GameEng\Headers\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Wall.h">
+    <ClInclude Include="GameEng\Headers\Wall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenSettings.h">
+    <ClInclude Include="GameEng\Headers\ScreenSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="tinyxml2.h">
+    <ClInclude Include="GameEng\Headers\Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="map-tiles\walking_ground.tsx" />
-    <None Include="map\map.tmx" />
+    <None Include="map\map.tmj" />
+    <None Include="map-tiles\walking_ground.tsj" />
+    <None Include="vcpkg.json" />
+    <None Include="vcpkg-configuration.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="map-tiles\walking_ground.png">
